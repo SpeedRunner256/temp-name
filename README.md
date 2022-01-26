@@ -4,7 +4,7 @@ A game about a girl who tried to leap through time.
 # Theme
 This game is aimed towards people who just want to have a good time. Note that this is my first game and I'm not the best practises guy.
 
-#Facts
+# Facts
 
 1. This game is made in godot
 2. This game is still in early-beta
