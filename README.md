@@ -10,5 +10,5 @@ This game is aimed towards people who just want to have a good time. Note that t
 2. This game is still in early-beta
 3. Please open a bug if you need to add something OR shoot me a DM at speedRUNNER#7376
 
-#Help
+# Help
 The game can be hard, but try to be modest about the game (plwease)
