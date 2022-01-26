@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/sprites/spike.png" type="Texture" id=1]
+[ext_resource path="res://scenes/spikeRayCastgd.gd" type="Script" id=2]
+
+[node name="Spikes" type="Node2D" groups=["Sike"]]
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 0, -1 )
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
