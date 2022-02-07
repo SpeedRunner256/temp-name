@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/overworld/player/back-face.png" type="Texture" id=1]
+[ext_resource path="res://assets/overworld/player/side-face.png" type="Texture" id=2]
+[ext_resource path="res://assets/overworld/player/front-face.png" type="Texture" id=3]
+[ext_resource path="res://scripts/OverWorld/Player/Player.gd" type="Script" id=4]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "Back",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "Front",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+height = 22.0
+
+[node name="Player-Overworld" type="Node2D"]
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+script = ExtResource( 4 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="KinematicBody2D"]
+scale = Vector2( 3, 3 )
+frames = SubResource( 1 )
+animation = "Side"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
+position = Vector2( 0, 14 )
+rotation = 1.5708
+shape = SubResource( 2 )
