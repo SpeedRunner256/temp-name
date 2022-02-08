@@ -7,14 +7,14 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "up",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 1 ) ],
-"loop": true,
-"name": "Back",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ) ],
@@ -23,20 +23,20 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=2]
-height = 22.0
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 16.0001, 16 )
 
 [node name="Player-Overworld" type="Node2D"]
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="."]
 script = ExtResource( 4 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="KinematicBody2D"]
-scale = Vector2( 3, 3 )
+[node name="AnimationSprite" type="AnimatedSprite" parent="KinematicBody2D"]
+scale = Vector2( 2, 2 )
 frames = SubResource( 1 )
-animation = "Side"
+animation = "up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
-position = Vector2( 0, 14 )
+position = Vector2( 5.76973e-05, 1.06521e-06 )
 rotation = 1.5708
 shape = SubResource( 2 )
