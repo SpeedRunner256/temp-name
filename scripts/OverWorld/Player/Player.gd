@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 const TILE_SIZE = 16
 
-export var walk_speed = 2
+export var walk_speed = 3
 
 var motion := Vector2.ZERO
 var initial_position = Vector2.ZERO
