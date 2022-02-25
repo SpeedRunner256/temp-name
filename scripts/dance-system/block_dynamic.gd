@@ -1,8 +1,10 @@
 extends StaticBody2D
 
 var start_move = false
+export var start_movin : float= 3
 export var STATE := 0
 func _ready():
+	$start_moving.wait_time = start_movin
 	$start_moving.start()
 
 func _physics_process(delta):
@@ -12,13 +14,13 @@ func _physics_process(delta):
 		$Label.text = ""
 	if start_move == true:
 		match STATE:
-			0:
+			0: #left
 				position.x -= 1
-			1:
+			1: #right
 				position.x +=1
-			2:
+			2: #up
 				position.y -= 1
-			3:
+			3: #down
 				position.y += 1
 
 func _on_start_moving_timeout():

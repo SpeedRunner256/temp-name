@@ -1,0 +1,97 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/dance-system/block_dynamic.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/sceneScripts/random lmao/area_shape.gd" type="Script" id=2]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+height = 524.0
+
+[node name="root" type="Node2D"]
+
+[node name="block" type="Node2D" parent="."]
+
+[node name="block_move_left" parent="block" instance=ExtResource( 1 )]
+position = Vector2( 240, -8 )
+start_movin = 9.77
+STATE = 3
+
+[node name="block_move_left6" parent="block" instance=ExtResource( 1 )]
+position = Vector2( 120, 200 )
+start_movin = 15.0
+STATE = 2
+
+[node name="block_move_left4" parent="block" instance=ExtResource( 1 )]
+position = Vector2( 336, 120 )
+start_movin = 2.0
+STATE = 0
+
+[node name="block_move_left7" parent="block" instance=ExtResource( 1 )]
+position = Vector2( 336, 72 )
+start_movin = 17.0
+STATE = 0
+
+[node name="block_move_left3" parent="block" instance=ExtResource( 1 )]
+position = Vector2( -16, 72 )
+start_movin = 6.0
+
+[node name="block_move_left5" parent="block" instance=ExtResource( 1 )]
+position = Vector2( -16, 168 )
+start_movin = 10.8
+
+[node name="block_move_left2" parent="block" instance=ExtResource( 1 )]
+position = Vector2( 80, 120 )
+start_movin = 2.0
+STATE = 3
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 80, 96 )
+
+[node name="death_zones" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="death_zones"]
+position = Vector2( 192, 208 )
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="death_zones/Area2D"]
+position = Vector2( -24, 16 )
+rotation = 1.5708
+shape = SubResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Area2D2" type="Area2D" parent="death_zones"]
+position = Vector2( 192, -80 )
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="death_zones/Area2D2"]
+position = Vector2( -24, 16 )
+rotation = 1.5708
+shape = SubResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Area2D3" type="Area2D" parent="death_zones"]
+position = Vector2( -144, 104 )
+rotation = 1.5708
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="death_zones/Area2D3"]
+position = Vector2( -24, 16 )
+rotation = 1.5708
+shape = SubResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Area2D4" type="Area2D" parent="death_zones"]
+position = Vector2( 528, 88 )
+rotation = 1.5708
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="death_zones/Area2D4"]
+position = Vector2( -24, 48 )
+rotation = 1.5708
+shape = SubResource( 1 )
+script = ExtResource( 2 )
+
+[connection signal="body_entered" from="death_zones/Area2D" to="death_zones/Area2D/CollisionShape2D" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="death_zones/Area2D2" to="death_zones/Area2D2/CollisionShape2D" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="death_zones/Area2D3" to="death_zones/Area2D3/CollisionShape2D" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="death_zones/Area2D4" to="death_zones/Area2D4/CollisionShape2D" method="_on_Area2D_body_entered"]

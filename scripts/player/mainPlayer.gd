@@ -1,11 +1,12 @@
 extends KinematicBody2D
 
 const GRAVITY = 15
-const SPEED = 150
+const SPEED = 155
 var motion = Vector2.ZERO
 var jumpHeight = -280
 var jumpCounter = 2
 var ifGrav := true
+var can_dash = true
 func _physics_process(delta):
 	if ifGrav:
 		motion.y = motion.y + GRAVITY
@@ -13,6 +14,7 @@ func _physics_process(delta):
 		pass
 	if is_on_floor():
 		jumpCounter = 2
+		can_dash = true
 	#simple movement, skim through
 	motion = move_and_slide(motion, Vector2.UP)
 	if Input.is_action_pressed("ui_right"):
@@ -29,11 +31,11 @@ func _physics_process(delta):
 	
 	
 	#DASHHHH
-	if Input.is_action_just_pressed("dash") and jumpCounter !=0:
+	if Input.is_action_just_pressed("dash") and can_dash:
 		ifGrav = false
 		motion.y = 0
 		$Timer.start()
-		jumpCounter -=1
+		can_dash = false
 		if motion.x == 0:
 			pass
 		elif motion.x < 0:
