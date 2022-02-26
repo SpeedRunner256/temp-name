@@ -43,6 +43,6 @@ func _physics_process(delta):
 		elif motion.x > 0:
 			motion.x = 700
 
-
+	
 func _on_Timer_timeout():
 	ifGrav = true

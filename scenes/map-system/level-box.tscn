@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/map-system/level-box.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://assets/map-system/level-line.png" type="Texture" id=3]
+[ext_resource path="res://assets/map-system/play_button.png" type="Texture" id=4]
+[ext_resource path="res://scenes/map-system/self_,made_button.gd" type="Script" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 16, 8 )
+
+[node name="level_box" type="Node2D"]
+script = ExtResource( 1 )
+level_number = 69
+Banner_Source = ExtResource( 2 )
+
+[node name="Level_banner" type="Sprite" parent="."]
+position = Vector2( 0, -24 )
+
+[node name="line" type="Sprite" parent="."]
+position = Vector2( 3.8147e-06, 0 )
+scale = Vector2( 0.711111, 0.8 )
+texture = ExtResource( 3 )
+
+[node name="self_,made_button" type="Area2D" parent="."]
+position = Vector2( 0, 17 )
+script = ExtResource( 5 )
+
+[node name="PLAY!" type="Sprite" parent="self_,made_button"]
+position = Vector2( 0, 7 )
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="self_,made_button"]
+position = Vector2( 0, 7 )
+shape = SubResource( 1 )
+
+[connection signal="mouse_entered" from="self_,made_button" to="self_,made_button" method="_on_self_made_button_mouse_entered"]
+[connection signal="mouse_exited" from="self_,made_button" to="self_,made_button" method="_on_self_made_button_mouse_exited"]

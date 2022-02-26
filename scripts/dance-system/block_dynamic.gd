@@ -8,10 +8,6 @@ func _ready():
 	$start_moving.start()
 
 func _physics_process(delta):
-	if $start_moving.time_left != 0:
-		$Label.text = String(int($start_moving.time_left+1))
-	else:
-		$Label.text = ""
 	if start_move == true:
 		match STATE:
 			0: #left

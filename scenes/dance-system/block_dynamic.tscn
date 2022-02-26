@@ -26,12 +26,6 @@ texture = ExtResource( 1 )
 wait_time = 3.0
 one_shot = true
 
-[node name="Label" type="Label" parent="."]
-margin_left = -3.0
-margin_top = -22.0
-margin_right = 13.0
-margin_bottom = -8.0
-
 [node name="stop__moving" type="Timer" parent="."]
 wait_time = 8.0
 one_shot = true
